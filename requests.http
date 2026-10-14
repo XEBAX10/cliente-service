@@ -1,0 +1,58 @@
+### 1. Listar todas las regiones
+GET http://localhost:8080/api/v1/cliente-service/clientes/regiones
+
+### 2. Listar todos los clientes (vacío al inicio)
+GET http://localhost:8080/api/v1/cliente-service/clientes
+
+### 3. Crear un cliente
+POST http://localhost:8080/api/v1/cliente-service/clientes
+Content-Type: application/json
+
+{
+  "nombre": "Linus",
+  "apellido": "Torvalds",
+  "email": "linus@linux.org",
+  "foto": "linus.jpg",
+  "region": { "id": 1 }
+}
+
+### 4. Crear otro cliente
+POST http://localhost:8080/api/v1/cliente-service/clientes
+Content-Type: application/json
+
+{
+  "nombre": "James",
+  "apellido": "Gosling",
+  "email": "james@java.com",
+  "foto": "james.jpg",
+  "region": { "id": 3 }
+}
+
+### 5. Listar todos (ahora 2 clientes)
+GET http://localhost:8080/api/v1/cliente-service/clientes
+
+### 6. Buscar por ID
+GET http://localhost:8080/api/v1/cliente-service/clientes/1
+
+### 7. Actualizar el primer cliente
+PUT http://localhost:8080/api/v1/cliente-service/clientes/1
+Content-Type: application/json
+
+{
+  "nombre": "Linus",
+  "apellido": "Torvalds",
+  "email": "linus@kernel.org",
+  "foto": "linus-updated.jpg",
+  "region": { "id": 1 }
+}
+
+### 8. Eliminar el primer cliente
+DELETE http://localhost:8080/api/v1/cliente-service/clientes
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+### 9. Verificar que ya no existe (debe dar 404)
+GET http://localhost:8080/api/v1/cliente-service/clientes/1
