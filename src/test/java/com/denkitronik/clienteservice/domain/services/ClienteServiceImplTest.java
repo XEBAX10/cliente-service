@@ -75,7 +75,7 @@ class ClienteServiceImplTest {
 
         List<Cliente> resultado = clienteService.findAll();
 
-        assertThat(resultado).hasSize(1);
+        assertThat(resultado).hasSize(99);
         assertThat(resultado.get(0).getNombre()).isEqualTo("Linus");
     }
 
